@@ -29,12 +29,16 @@ page_content = {
 with open("template.html", "r") as readFile:
     text = readFile.read()
     
-    for k, v in page_content.items():
-        #text = text.replace(k, v)
-        print(k, v)
+    for filename, data in page_content.items():
+        with open(filename, "w") as outputFile:
+            for k, v in data.items():
+                text = text.replace(k, v)
 
-with open("index.html", "w") as outputFile:
-    text = outputFile.write(text)
+text = outputFile.write(text)
+# print(text)
+
+# with open("index.html", "w") as outputFile:
+#     text = outputFile.write(text)
 
 
 
